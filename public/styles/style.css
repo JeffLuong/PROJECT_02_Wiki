@@ -20,14 +20,139 @@ html {
 header {
   width: 100%;
   height: 10vh;
+  display: inline-block;
 }
 
 input:focus {
   outline: none;
 }
 
+footer {
+  height: 8vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+footer div h1 {
+  margin: 0;
+}
+
+/*********FOR HAMBURGER BUTTON*********/
+
+#hamburger-button {
+  display: inline-block;
+  vertical-align: top;
+  height: 25px;
+  width: 20px;
+  margin: 15px;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#hamburger-button:hover {
+  cursor: pointer;
+}
+
+#hamburger-button > span {
+  display: inline-block;
+  width: 4px;
+  height: 25px;
+  transition: all .5s ease;
+  background-color: #495867;
+}
+
+#hamburger-button.open :first-child {
+  transform: translateX(8px) rotate(45deg);
+}
+
+#hamburger-button.open :nth-child(2) {
+  transform: rotateX(90deg);
+}
+
+#hamburger-button.open :last-child {
+  transform: translateX(-8px) rotate(-45deg);
+}
+
+/*********FOR MENU *********/
+
+#menu-wrapper {
+  height: 5vh;
+  width: 100%;
+  position: fixed;
+  opacity: 0;
+  -moz-transition: all 0.75s ease;
+  -o-transition: all 0.75 ease;
+  -webkit-transition: all 0.75s ease;
+  transition: all 0.75s ease;
+}
+
+#menu-wrapper.open {
+  opacity: 0.9;
+}
+
+#menu-wrapper.open li {
+  left: 0;
+  opacity: 1;
+}
+
+ul#menu {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding-left: 55px;
+}
+
+ul#menu li {
+  left: -20%;
+  position: relative;
+  opacity: 0;
+  transition: opacity 1s ease, left .75s ease;
+  display: inline-block;
+  border-right: 1px solid lightgray;
+  padding: 8px;
+  margin-right: 25px;
+}
+
+ul#menu :first-child {
+  transition-delay: .35s;
+}
+
+ul#menu :nth-child(2) {
+  position: relative;
+  transition-delay: .30s;
+}
+
+ul#menu :nth-child(3){
+  transition-delay: .25s;
+}
+
+ul#menu :nth-child(4) {
+  transition-delay: .2s;
+}
+
+ul#menu :nth-child(5) {
+  transition-delay: .15s;
+}
+
+ul#menu li a,
+ul#menu li span {
+  text-decoration: none;
+  color: #495867;
+  transition-delay: 0s;
+}
+
+ul#menu li a:hover,
+ul#menu li span:hover {
+  border-bottom: 1px solid #495867;
+  cursor: pointer;
+  /*transition-delay: 0;*/
+}
 
 /*********FOR LANDING PAGE & LOGIN*********/
+
 .container,
 #main:first-child {
   display: flex;
@@ -43,10 +168,8 @@ input:focus {
 }
 
 #main-logo {
-  padding: 0 42px;
   height: 250px;
-  /*margin-top: .75em;*/
-  /*margin-bottom: .125em;*/
+  width: 251px;
   font-family: 'Raleway', sans-serif;
   font-size: 10em;
   font-weight: 200;
@@ -76,21 +199,22 @@ input:focus {
 
 #logo-container .section {
   background-color: white;
-  border: 1px solid #495867;
+  border: 1px solid #6d7985;
   width: 250.734px;
   height: 250px;
   top: 0%;
   z-index: 1;
   position: absolute;
-  -moz-transition: top 0.5s;
-  -o-transition: top 0.5s;
-  -webkit-transition: top 0.5s;
-  transition: top 0.5s;
-
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  opacity: 0;
 }
 
 #logo-container input:checked + label + .section {
-  top: 20%;
+  top: 33%;
+  opacity: 1;
 }
 
 #logo {
@@ -102,12 +226,12 @@ input:focus {
   bottom: 0;
 }
 
-#logo-container .section div label {
+#logo-container .section div form label {
   color: #495867;
   padding-left: .5em;
 }
 
-#logo-container .section div input:last-child {
+#logo-container .section div form input:last-child {
   width: 100%;
   background-color: #495867;
   color: white;
@@ -123,16 +247,77 @@ input:focus {
   transition: background-color 0.5s;
 }
 
-#logo-container .section div input:last-child:hover {
+#logo-container .section div form input:last-child:hover {
   cursor: pointer;
   background-color: #6b7783;
 }
 
-#logo-container .section div input:first-of-type {
+#logo-container .section div form input[type="text"] {
   width: 100%;
   margin-top: .5em;
   padding-left: .5em;
   color: #495867;
 }
 
+#logo-container .section div form input:first-of-type {
+  margin-bottom: .5em;
+}
+
+/*********FOR BROWSE MENU*********/
+
+#menu li:nth-child(2):hover a + ul {
+  display: block;
+  position: absolute;
+}
+
+ul#browse-menu {
+  width: 150px;
+  height: 200px;
+  display: none;
+  list-style: none;
+  padding: 20px 0 0 0;
+  margin: 0;
+}
+
+ul#browse-menu li {
+  display: block;
+  border: 0;
+  padding-left: 0;
+}
+
+/*********FOR FOOTER*********/
+
+.message {
+  font-size: 2em;
+  text-align: right;
+  margin: 0;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  color: #acacac;
+}
+
+/* for fade in */
+.message {
+  display: none;
+}
 /*********FOR WELCOME PAGE*********/
+
+#main-content {
+  width: 60vw;
+  height: 60vh;
+}
+
+#main-content h1, h2 {
+  font-size: 3em;
+  color: #495867;
+  text-align: center;
+}
+
+#main-content h1 {
+  margin-bottom: .25em;
+}
+
+#main-content h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
