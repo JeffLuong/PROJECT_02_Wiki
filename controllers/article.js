@@ -2,15 +2,18 @@ var express = require('express'),
     router  = express.Router(),
     Article = require('../models/article.js');
 
+console.log("article.js successfully exported");
+
 // GET ALL ARTICLES
 router.get('/articles', function(req, res) {
-  Article.find({}, function(err, articlesArray) {
-    if (err) {
-      console.log(err);
-    } else {
+  // Article.find({}, function(err, articlesArray) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  console.log("Can't load articles");
       res.render('articles/index', {});
-    };
-  });
+  //   };
+  // });
 });
 
 // GET NEW ARTICLE FORM

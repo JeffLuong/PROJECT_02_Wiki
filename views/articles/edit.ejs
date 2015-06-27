@@ -1,0 +1,14 @@
+<form action="/articles/new" method="post">
+  <label>Title:</label></br>
+  <input type="text"
+         name="article[title]"
+        value="<%= article[title] %>"></br>
+  <label>Author</label></br>
+  <input type="text"
+         name="user[username]"
+        value="<%= user[username] %>"></br>
+ <label>Title:</label></br>
+ <textarea type="text"
+        name="article[content]"><%= article[content] %></textarea>
+
+</form>

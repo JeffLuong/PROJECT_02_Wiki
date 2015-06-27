@@ -2,8 +2,12 @@ var express = require('express'),
      router = express.Router(),
        User = require('../models/user.js');
 
+console.log('users.js successfully exported');
+
 router.get('/users/new', function(req, res) {
-  res.render('users/new', {});
+  // res.render('users/new', {});
+  res.render("WHAT THE FUCK");
+  console.log("can't get to new users form");
 });
 
 router.post('/users/new', function(req, res) {
@@ -20,15 +24,15 @@ router.post('/users/new', function(req, res) {
 // });
 
 // LOGIN ATTEMPT
-router.post('/', function(req, res) {
-  var loginAttempt = req.body.user;
-
-  User.findOne({ username: loginAttempt.username }, function(err, user) {
-    if(user && user.password === loginAttempt.password) {
-      req.session.currentUser = user.username;
-      res.redirect(301, 'welcome');
-    }
-  });
-});
+// router.post('/', function(req, res) {
+//   var loginAttempt = req.body.user;
+//
+//   User.findOne({ username: loginAttempt.username }, function(err, user) {
+//     if(user && user.password === loginAttempt.password) {
+//       req.session.currentUser = user.username;
+//       res.redirect(301, 'welcome');
+//     }
+//   });
+// });
 
 module.exports = router;

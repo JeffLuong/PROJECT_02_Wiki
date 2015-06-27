@@ -9,6 +9,7 @@ var express            = require('express'),
     expressLayouts     = require('express-ejs-layouts'),
     articlesController = require('./controllers/article.js'),
     usersController    = require('./controllers/users.js'),
+    url                = 'mongodb://localhost:27017/wiki_db',
     port               = 3000;
 
 // MORGAN ERROR DETECTION
@@ -45,7 +46,7 @@ server.get('/welcome', function(req, res) {
   res.render('welcome');
 });
 
-mongoose.connect('mongodb://localhost:27017/wiki_db');
+mongoose.connect(url);
 var db = mongoose.connection;
 
 db.on('error', function() {
