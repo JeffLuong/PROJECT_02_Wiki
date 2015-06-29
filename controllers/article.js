@@ -5,26 +5,28 @@ var express = require('express'),
 console.log("article.js successfully exported");
 
 // GET ALL ARTICLES
-router.get('/articles', function(req, res) {
-  // Article.find({}, function(err, articlesArray) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  console.log("Can't load articles");
-      res.render('articles/index', {});
-  //   };
-  // });
+router.get('/', function(req, res) {
+ Article.find({}, function(err, articlesArray) {
+   if (err) {
+     console.log(err);
+   } else {
+     res.render('articles/index', {
+       article: articlesArray
+     });
+   };
+ });
 });
 
 // GET NEW ARTICLE FORM
-router.get('/articles/new', function(req, res) {
+router.get('/new', function(req, res) {
   res.render('articles/new', {});
 });
 
 // CREATE NEW ARTICLE
-router.post('/articles/new', function(req, res) {
+router.post('/:title', function(req, res) {
   var newArticle = new Article(req.body.article);
   newArticle.save(function(err, article) {
+    console.log("new article posted");
     if (err) {
       console.log(err);
     } else {
@@ -34,10 +36,11 @@ router.post('/articles/new', function(req, res) {
 });
 
 // SHOW ARTICLE
-router.get('/articles/:id', function(req, res) {
-  var mongoId = req.params.id;
-
-  article.findOne({ _id: mongoId }, function(err, foundArticle) {
+router.get('/:title', function(req, res) {
+  var articleTitle = req.params.title;
+  console.log(articleTitle);
+  Article.findOne({ title: articleTitle }, function(err, foundArticle) {
+    console.log(foundArticle);
     res.render('articles/show', {
       article: foundArticle
     });
@@ -45,10 +48,10 @@ router.get('/articles/:id', function(req, res) {
 });
 
 // EDIT ARTICLE
-router.get('/articles/:id/edit', function(req, res) {
-  var mongoId = req.params.id;
+router.get('/:title/edit', function(req, res) {
+  var articleTitle = req.params.title;
 
-  article.findOne({ _id: mongoId }, function(err, foundArticle) {
+  Article.findOne({ title: articleTitle }, function(err, foundArticle) {
     res.render('articles/edit', {
       article: foundArticle
     });
@@ -56,21 +59,22 @@ router.get('/articles/:id/edit', function(req, res) {
 });
 
 // UPDATE ARTICLE
-router.patch('articles/:id', function(req, res) {
-  var mongoId = req.params.id;
+router.patch('/:title', function(req, res) {
+  var articleTitle = req.params.title;
   var articleUpdate = req.body.article;
 
-  article.update({ _id: mongoId }, articleUpdate, function(err, result) {
-    res.redirect(301, '/articles/' + req.params.id);
+  Article.update({ title: articleTitle }, articleUpdate, function(err, result) {
+    console.log("Logging....");
+    res.redirect(301, '/articles/' + articleUpdate.title);
   });
 });
 
 // DELETE ARTICLE
-router.delete('articles/:id', function(req, res) {
-  var mongoId = req.params.id;
+router.delete('/:title', function(req, res) {
+  var articleTitle = req.params.title;
 
-  article.remove(
-    { _id: mongoId }, function(err, result) {
+  Article.remove(
+    { title: articleTitle }, function(err, result) {
       res.redirect(301, '/articles');
   });
 });

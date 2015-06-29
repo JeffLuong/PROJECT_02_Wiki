@@ -1,14 +1,24 @@
-<form action="/articles/new" method="post">
-  <label>Title:</label></br>
-  <input type="text"
-         name="article[title]"
-        value="<%= article[title] %>"></br>
-  <label>Author</label></br>
-  <input type="text"
-         name="user[username]"
-        value="<%= user[username] %>"></br>
- <label>Title:</label></br>
- <textarea type="text"
-        name="article[content]"><%= article[content] %></textarea>
-
-</form>
+<div class="container">
+  <div id="main-new-art">
+    <form action="/articles/<%= article.title %>?_method=PATCH" method="post">
+      <label>Title</label></br>
+      <input type="text"
+             name="article[title]"
+            value="<%= article.title %>"></br>
+      <label>Author</label></br>
+      <input type="text"
+             name="article[author]"
+            value="<%= article.author %>"></br>
+      <label>Categories</label></br>
+      <input type="text"
+             name="article[categories][]"
+            value="<%= article.categories %>"></br>
+     <label>Content</label></br>
+     <textarea type="text"
+            name="article[content]"><%= article.content %></textarea>
+     <input type="submit"
+           value="Publish">
+<!-- value of author should be user[username] -->
+    </form>
+  </div>
+</div>

@@ -1,10 +1,25 @@
-<form action="/users/new" method="post">
-  <label>Create Username</label></br>
-  <input type="text"
-         name="user[username]"
-  placeholder="your username"></br>
-  <label>Create Password</label></br>
-  <input type="text"
-         name="user[password]"
-  placeholder="your password">
-</form>
+<div class="container">
+  <div id="main-new-user">
+    <div id="main">
+      <form action="/users/new" method="post">
+        <label>Username</label></br>
+        <input type="text"
+               name="user[username]"
+        placeholder="Enter your username"></br>
+        <label>Email</label></br>
+        <input type="text"
+               name="user[email]"
+        placeholder="Enter your email"></br>
+        <label>Password</label></br>
+        <input type="text"
+               name="user[password]"
+        placeholder="Enter your password">
+      </form>
+    </div>
+  </div>
+</div>
+<footer>
+<div class="message">
+  <h1></h1>
+</div>
+</footer>

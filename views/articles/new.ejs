@@ -1,12 +1,21 @@
-<form action="/articles/new" method="post">
-  <label>Title:</label></br>
-  <input type="text"
-         name="article[title]"></br>
-  <label>Author</label></br>
-  <input type="text"
-         name="user[username]"></br>
- <label>Title:</label></br>
- <textarea type="text"
-        name="article[content]"></textarea>
-
-</form>
+<div class="container">
+  <div id="main-new-art">
+    <form action="/articles/:title" method="post">
+      <label>Title</label></br>
+      <input type="text"
+             name="article[title]"></br>
+      <label>Author</label></br>
+      <input type="text"
+             name="article[author]"></br>
+      <label>Categories</label></br>
+      <input type="text"
+             name="article[categories][]"></br>
+     <label>Content</label></br>
+     <textarea type="text"
+            name="article[content]"></textarea>
+     <input type="submit"
+           value="Publish">
+<!-- value of author should be user[username] -->
+    </form>
+  </div>
+</div>

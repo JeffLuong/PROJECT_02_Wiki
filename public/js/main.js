@@ -13,8 +13,8 @@ function slideMenu() {
 };
 
 function fadeInDisplay() {
-  $("#main, #main-content").hide();
-  $('#main, #main-content').fadeIn(1250);
+  $("#main, #main-content, #main-new-art, #main-new-user").hide();
+  $('#main, #main-content, #main-new-art, #main-new-user').fadeIn(1250);
   $(".message").fadeIn(1500);
 }
 

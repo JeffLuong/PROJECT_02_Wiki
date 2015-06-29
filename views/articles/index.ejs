@@ -1,1 +1,16 @@
-<h1>Index of Articles</h1>
+
+<div class="container">
+  <div id="main">
+    <div id="index-page">Article Index
+      <ul>
+        <% article.forEach(function (article, i) { %>
+        <li>
+          <a href="/articles/<%=article.title%>">
+            <%= article.title  %>
+          </a>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -19,14 +19,27 @@ html {
 
 header {
   width: 100%;
-  height: 12vh;
+  height: 10vh;
   display: inline-block;
   position: fixed;
   background-color: white;
   z-index: 999;
 }
 
+input {
+  padding: 4px;
+  color: #495867;
+}
+
 input:focus {
+  outline: none;
+}
+
+label {
+  color: #495867;
+}
+
+textarea:focus {
   outline: none;
 }
 
@@ -41,16 +54,29 @@ footer div h1 {
   margin: 0;
 }
 
+li {
+  list-style: none;
+}
+
+li a {
+  text-decoration: none;
+  color: #495867;
+}
+
+li a:hover {
+  border-bottom: 1px solid #495867;
+}
+
 /*********FOR HAMBURGER BUTTON*********/
 
 #hamburger-button {
   display: inline-block;
   vertical-align: top;
   height: 25px;
-  width: 20px;
-  margin: 15px;
+  width: 22px;
+  margin: 15px 0 0 15px;
   z-index: 3;
-  display: flex;
+  /*display: flex;*/
   flex-direction: row;
   justify-content: space-between;
 }
@@ -65,6 +91,10 @@ footer div h1 {
   height: 25px;
   transition: all .5s ease;
   background-color: #495867;
+}
+
+#hamburger-button span:last-child {
+  margin-left: 1px;
 }
 
 #hamburger-button.open :first-child {
@@ -93,7 +123,7 @@ footer div h1 {
 }
 
 #menu-wrapper.open {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #menu-wrapper.open li {
@@ -151,7 +181,37 @@ ul#menu li a:hover,
 ul#menu li span:hover {
   border-bottom: 1px solid #495867;
   cursor: pointer;
-  /*transition-delay: 0;*/
+}
+
+.logo-con {
+  display: inline-block;
+  width: 93%;
+  height: 30px;
+  text-align: right;
+  margin-top: 15px;
+}
+
+.logo {
+  display: inline-block;
+  text-align: center;
+  background-color: #495867;
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  margin-right: 15px;
+  transition: background-color .5;
+}
+
+.logo a {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  font-size: 1.25em;
+  line-height: 1.65em;
+}
+
+.logo:hover {
+  background-color: #6b7783;
 }
 
 /*********FOR LANDING PAGE & LOGIN*********/
@@ -164,7 +224,7 @@ ul#menu li span:hover {
   padding-top: 3%;
 }
 
-#main {
+#main, #main-new-art {
   width: 60vw;
   height: 60vh;
   min-width: 500px;
@@ -217,7 +277,7 @@ ul#menu li span:hover {
 }
 
 #logo-container input:checked + label + .section {
-  top: 33%;
+  top: 35%;
   opacity: 1;
 }
 
@@ -235,7 +295,8 @@ ul#menu li span:hover {
   padding-left: .5em;
 }
 
-#logo-container .section div form input:last-child {
+#logo-container .section div form input:last-child,
+#main-new-art form input:last-child {
   width: 100%;
   background-color: #495867;
   color: white;
@@ -251,7 +312,8 @@ ul#menu li span:hover {
   transition: background-color 0.5s;
 }
 
-#logo-container .section div form input:last-child:hover {
+#logo-container .section div form input:last-child:hover,
+#main-new-art form input:last-child:hover {
   cursor: pointer;
   background-color: #6b7783;
 }
@@ -281,6 +343,7 @@ ul#browse-menu {
   list-style: none;
   padding: 20px 0 0 0;
   margin: 0;
+  background-color: white;
 }
 
 ul#browse-menu li {
@@ -304,6 +367,18 @@ ul#browse-menu li {
 .message {
   display: none;
 }
+
+footer.edit-art-footer {
+  text-align: right;
+  background-color: white;
+}
+
+footer.edit-art-footer span {
+  margin-right: 25px;
+}
+
+
+
 /*********FOR WELCOME PAGE*********/
 
 #main-content {
@@ -351,7 +426,7 @@ ul#browse-menu li {
 }
 
 i {
-  color: #CE796B;
+  color: #495867;
 }
 
 .half {
@@ -369,4 +444,137 @@ i {
 .full {
   width: 100%;
   position: relative;
+}
+
+/********SHOW ARTICLE PAGE************/
+
+#article {
+  width: 100%;
+  height: 200vh;
+  margin-top: 0vh;
+}
+
+#article h1, #article h3 {
+  font-size: 3em;
+  color: #3a4652;
+}
+
+#article h1 {
+  text-align: center;
+}
+
+#article h3 {
+  font-size: 1.5em;
+}
+
+.full ul {
+  padding: 0;
+}
+
+.full ul li {
+  font-size: 1.25em;
+  color: #3a4652;
+}
+
+/*********FOR NEW ARTICLE PAGE*********/
+
+#main-new-art,
+#main-new-user {
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#main-new-art form {
+  width: 75%;
+}
+
+#main-new-user form {
+  width: 40%;
+  min-width: 220px;
+}
+
+#main-new-art form input,
+#main-new-art form textarea,
+#main-new-user form input {
+  width: 100%;
+  margin-bottom: 1em;
+  margin-top: .25em;
+}
+
+#main-new-art form textarea {
+  height: 45vh;
+  resize: none;
+  margin-bottom: 0;
+}
+
+#main-new-art form input:last-child {
+  margin-top: 0;
+}
+
+/************ARTICLES INDEX PAGE**************/
+
+#index-page {
+  text-align: center;
+  padding-top: 1em;
+  font-size: 2.25em;
+}
+
+#index-page ul {
+  padding: 0;
+  text-align: center;
+}
+
+#index-page ul li {
+  font-size: .75em;
+}
+
+/************MEDIA QUERIES**************/
+@media screen and (max-width: 1024px) {
+    .logo-con {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .logo-con {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .logo-con {
+        width: 82.5%;
+    }
+
+    ul#menu {
+      padding-left: 10px;
+    }
+
+    ul#menu li {
+      margin-right: 10px;
+    }
+
+    ul#menu li a{
+      font-size: .95em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .logo-con {
+        width: 80%;
+    }
+
+    ul#menu {
+      padding-left: 5px;
+    }
+
+    ul#menu li {
+      margin-right: 5px;
+    }
+
+    ul#menu li a{
+      font-size: .85em;
+    }
 }
