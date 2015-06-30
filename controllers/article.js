@@ -75,7 +75,8 @@ router.get('/:title/edit', function(req, res) {
 
   Article.findOne({ title: articleTitle }, function(err, foundArticle) {
     res.render('articles/edit', {
-      article: foundArticle
+      article: foundArticle,
+      username: req.session.currentUser
     });
   });
 });

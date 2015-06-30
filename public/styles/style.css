@@ -479,11 +479,11 @@ input#delete-button:hover {
   font-size: 1.5em;
 }
 
-#click-scroll {
+i {
   transition: color .5s;
 }
 
-#click-scroll:hover {
+i:hover {
   color: #CE796B;
   cursor: pointer;
 }
