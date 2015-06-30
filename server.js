@@ -38,12 +38,15 @@ server.use(methodOverride('_method'));
 server.use('/articles', articlesController);
 server.use('/users', usersController);
 
-// MOVE INDEX TO USER LOGIN...FORMAT INDEX.HTML INTO LAYOUTS?
 
 
-// THIS SHOULD BE THE LANDING PAGE
+// LANDING PAGE
 server.get('/', function(req, res) {
   res.render('welcome');
+});
+
+server.get('/about', function(req, res) {
+  res.render('about');
 });
 
 mongoose.connect(url);

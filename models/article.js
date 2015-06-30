@@ -7,7 +7,8 @@ var articleSchema = Schema({
   author: { type: String, required: true },
   content: { type: String, required: true },
   categories: [{ type: String, required: true }],
-  created_at: { type: Date, default: Date.now }
+  created_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now }
 });
 
 

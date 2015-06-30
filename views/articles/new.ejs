@@ -3,19 +3,28 @@
     <form action="/articles/:title" method="post">
       <label>Title</label></br>
       <input type="text"
-             name="article[title]"></br>
+             name="article[title]"
+      placeholder="Title here."></br>
       <label>Author</label></br>
       <input type="text"
-             name="article[author]"></br>
+             name="article[author]"
+      placeholder="Your name here."></br>
       <label>Categories</label></br>
       <input type="text"
-             name="article[categories][]"></br>
+             name="article[categories][]"
+      placeholder="List your categories here."></br>
      <label>Content</label></br>
      <textarea type="text"
-            name="article[content]"></textarea>
+               name="article[content]"
+        placeholder="Your content here."></textarea>
      <input type="submit"
            value="Publish">
 <!-- value of author should be user[username] -->
     </form>
   </div>
 </div>
+<footer>
+<div class="message">
+  <h1><%= message %></h1>
+</div>
+</footer>

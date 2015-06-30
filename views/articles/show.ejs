@@ -6,13 +6,14 @@
         <h3>Author: <%= article.author %></h3>
       </div>
       <div class="full">
-        <p>
-          <%= article.content %>
-        </p>
+          <%- article.content %>
         <ul>
           <% var string = article.created_at.toString(); %>
-          <% var time = string.split(" ").slice(0, 5); %>
-          <li>This page was last modified on <%= time[0] + " " + time[1] + " " + time[2] + " " + time[3] + ", at " + time[4] + "."%></li></br>
+          <% var timeCreated = string.split(" ").slice(0, 5); %>
+          <li>This page was created on <%= timeCreated[0] + " " + timeCreated[1] + " " + timeCreated[2] + " " + timeCreated[3] + ", at " + timeCreated[4] + "."%></li></br>
+          <% var string2 = article.updated_at.toString(); %>
+          <% var timeModified = string2.split(" ").slice(0, 5); %>
+          <li>This page was last modified on <%= timeModified[0] + " " + timeModified[1] + " " + timeModified[2] + " " + timeModified[3] + ", at " + timeModified[4] + "."%></li></br>
           <% article.categories.forEach(function (categories, i) { %>
           <li>Categories: <%= article.categories[i] %></li>
           <% }); %>

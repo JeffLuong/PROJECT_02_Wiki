@@ -1,6 +1,7 @@
 var express = require('express'),
     router  = express.Router(),
-    Article = require('../models/article.js');
+    Article = require('../models/article.js'),
+    marked  = require('marked');
 
 console.log("article.js successfully exported");
 
@@ -11,7 +12,8 @@ router.get('/', function(req, res) {
      console.log(err);
    } else {
      res.render('articles/index', {
-       article: articlesArray
+       article: articlesArray,
+       message: "Click to view articles."
      });
    };
  });
@@ -19,12 +21,23 @@ router.get('/', function(req, res) {
 
 // GET NEW ARTICLE FORM
 router.get('/new', function(req, res) {
-  res.render('articles/new', {});
+  if(req.session.currentUser) {
+    res.render('articles/new', {
+      message: "Write your article."
+    });
+  } else {
+    // MUST LOG IN TO WRITE ARTICLE
+    res.render('users/login', {
+      message: "You must log in to write your article."
+    });
+  };
+
 });
 
 // CREATE NEW ARTICLE
 router.post('/:title', function(req, res) {
   var newArticle = new Article(req.body.article);
+
   newArticle.save(function(err, article) {
     console.log("new article posted");
     if (err) {
@@ -38,9 +51,9 @@ router.post('/:title', function(req, res) {
 // SHOW ARTICLE
 router.get('/:title', function(req, res) {
   var articleTitle = req.params.title;
-  console.log(articleTitle);
+
   Article.findOne({ title: articleTitle }, function(err, foundArticle) {
-    console.log(foundArticle);
+    foundArticle.content = marked(foundArticle.content);
     res.render('articles/show', {
       article: foundArticle
     });
@@ -60,11 +73,10 @@ router.get('/:title/edit', function(req, res) {
 
 // UPDATE ARTICLE
 router.patch('/:title', function(req, res) {
-  var articleTitle = req.params.title;
-  var articleUpdate = req.body.article;
-
+  var articleTitle = req.params.title,
+      articleUpdate = req.body.article;
+      articleUpdate.updated_at = Date.now();
   Article.update({ title: articleTitle }, articleUpdate, function(err, result) {
-    console.log("Logging....");
     res.redirect(301, '/articles/' + articleUpdate.title);
   });
 });

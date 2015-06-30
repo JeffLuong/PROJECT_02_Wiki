@@ -1,0 +1,20 @@
+<div class="container">
+  <div id="main-new-user">
+    <div id="main">
+      <div id="profile-cont">
+        <label>Username</label></br>
+        <h3><%= user.username %></h3></br>
+        <label>Email</label></br>
+        <h3><%= user.email %></h3></br>
+        <label>Password</label></br>
+        <h3><%= user.password %></h3>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="edit-art-footer">
+  <span><a href="/users/<%= user._id %>/edit"><i class="fa fa-pencil"></i></a> Edit your info.</span>
+  <div class="message">
+    <h1><%= message %></h1>
+  </div>
+</footer>

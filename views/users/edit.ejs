@@ -1,0 +1,27 @@
+<div class="container">
+  <div id="main-new-user">
+    <div id="main">
+      <form action="/users/<%= user._id %>?_method=PATCH" method="post">
+        <label>Username</label></br>
+        <input type="text"
+               name="user[username]"
+              value="<%= user.username %>"></br>
+        <label>Email</label></br>
+        <input type="text"
+               name="user[email]"
+              value="<%= user.email %>"></br>
+        <label>Password</label></br>
+        <input type="text"
+               name="user[password]"
+              value="<%= user.password %>">
+        <input type="submit"
+              value="Update">
+      </form>
+    </div>
+  </div>
+</div>
+<footer>
+<div class="message">
+  <h1><%= message %></h1>
+</div>
+</footer>

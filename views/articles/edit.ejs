@@ -20,5 +20,13 @@
            value="Publish">
 <!-- value of author should be user[username] -->
     </form>
+
   </div>
 </div>
+<footer class="delete-art-footer">
+  <form action="/articles/<%= article.title %>?_method=DELETE" method="post">
+        <input id="delete-button"
+               type="submit"
+               value="Delete Article">
+  </form>
+</footer>
