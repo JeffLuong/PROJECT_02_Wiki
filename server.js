@@ -9,8 +9,12 @@ var express            = require('express'),
     expressLayouts     = require('express-ejs-layouts'),
     articlesController = require('./controllers/article.js'),
     usersController    = require('./controllers/users.js'),
-    url                = 'mongodb://localhost:27017/wiki_db',
-    port               = 3000;
+    url                = 'mongodb://localhost:27017/wiki_db';
+    // port               = 3000;
+
+// This sets PORT to the process PORT, if it doesn't exist, use local port.
+var PORT = process.env.PORT || 3000;
+var MONGORUI = process.env.MONGLAB_URI || url;
 
 // MORGAN ERROR DETECTION
 server.use(morgan('short'));
@@ -49,7 +53,7 @@ server.get('/about', function(req, res) {
   res.render('about');
 });
 
-mongoose.connect(url);
+mongoose.connect(MONGOURI);
 var db = mongoose.connection;
 
 db.on('error', function() {
@@ -58,7 +62,7 @@ db.on('error', function() {
 
 db.once('open', function() {
   console.log("Database up and running");
-  server.listen(port, function() {
+  server.listen(PORT, function() {
     console.log("Server up and running");
   });
 });

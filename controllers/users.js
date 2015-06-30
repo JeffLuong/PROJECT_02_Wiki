@@ -111,4 +111,11 @@ router.patch('/:id', function(req, res) {
    });
 });
 
+// LOGOUT USER
+router.get('/logout', function(req, res) {
+  req.session.currentUser = null;
+  console.log("logged out");
+  res.redirect(301, '/');
+});
+
 module.exports = router;

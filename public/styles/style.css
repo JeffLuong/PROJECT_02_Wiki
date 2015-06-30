@@ -74,6 +74,10 @@ li a:hover {
   border-bottom: 1px solid #495867;
 }
 
+p {
+  color: #495867;
+}
+
 /*********FOR HAMBURGER BUTTON*********/
 
 #hamburger-button {
@@ -539,6 +543,38 @@ i {
 }
 
 /*********FOR NEW ARTICLE & USER PAGE*********/
+
+.categories-grp {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  /*display: flex;
+  flex-direction: row;
+  justify-content: space-between;*/
+}
+
+.categories-grp input[type='checkbox'] {
+  display: none;
+}
+
+.categories-grp input[type='checkbox'] + label {
+  display: inline-block;
+  margin-right: 1em;
+  padding: .5em;
+  border: 1px solid #6d7985;
+  transition: background-color 0.5s;
+  margin-top: .25em;
+  margin-bottom: .25em;
+}
+
+.categories-grp input[type='checkbox']:checked + label {
+  background-color: #495867;
+  color: white;
+}
+
+.categories-grp input[type='checkbox'] + label:hover {
+  background-color: #495867;
+  color: white;
+}
 
 #main-new-art,
 #main-new-user {
