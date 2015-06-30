@@ -81,13 +81,14 @@ router.post('/', function(req, res) {
 });
 
 // SHOW USER PROFILE
-// router.get('/:id', function(req, res) {
-//   User.findById(req.params.id, function(err, foundUser) {
-//     res.render('users/profile', {
-//       user: foundUser
-//     });
-//   });
-// });
+router.get('/:id', function(req, res) {
+  User.findById(req.params.id, function(err, foundUser) {
+    res.render('users/profile', {
+      user: foundUser,
+      message: "Your profile info."
+    });
+  });
+});
 
 // GET PROFILE EDIT PAGE
 router.get('/:id/edit', function(req, res) {
