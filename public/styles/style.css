@@ -9,12 +9,14 @@
 
 body {
   margin: 0;
+  top: 0;
 }
 
 html {
   font-size: 1em;
   font-family: 'Oxygen', sans-serif;
   font-weight: 300;
+  top: 0;
 }
 
 header {
@@ -411,6 +413,11 @@ footer.edit-art-footer,
 footer.delete-art-footer {
   text-align: right;
   background-color: white;
+  font-size: 2em;
+  color: #acacac;
+  margin: 0;
+  padding-right: 1em;
+  padding-bottom: 1em;
 }
 
 footer.edit-art-footer span {
@@ -458,6 +465,10 @@ input#delete-button:hover {
   text-align: center;
 }
 
+#main-content h2:nth-of-type(2) {
+  margin-top: 38vh;
+}
+
 #main-content h1 {
   margin-top: 25%;
   margin-bottom: .25em;
@@ -468,15 +479,33 @@ input#delete-button:hover {
   font-size: 1.5em;
 }
 
+#click-scroll {
+  transition: color .5s;
+}
+
+#click-scroll:hover {
+  color: #CE796B;
+  cursor: pointer;
+}
+
 #featured {
   width: 100%;
   height: 150vh;
-  margin-top: 40vh;
+  /*margin-top: 20vh;*/
 }
 
 #featured h3 {
   color: #3a4652;
   font-size: 1.5em;
+}
+
+#featured-title h1 {
+  margin-top: 15vh;
+}
+
+#featured-article {
+  margin-top: 18vh;
+  border-top: 1px solid lightgray;
 }
 
 #featured-article div:nth-child(2) p {
@@ -516,7 +545,7 @@ i {
 
 #article {
   width: 100%;
-  height: 250vh;
+  height: 275vh;
   margin-top: 0vh;
 }
 
@@ -606,7 +635,7 @@ i {
 }
 
 #main-new-art form textarea {
-  height: 42vh;
+  height: 39vh;
   resize: none;
   margin-bottom: 0;
 }
@@ -665,6 +694,10 @@ i {
 
 .about-info {
   margin-top: 8vh;
+}
+
+.about-info p {
+  font-size: 1.25em;
 }
 
 /************MEDIA QUERIES**************/

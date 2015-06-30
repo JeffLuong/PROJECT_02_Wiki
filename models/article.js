@@ -3,8 +3,8 @@ var mongoose = require('mongoose'),
 
 /// Is there a way to have a maximum number of categories?
 var articleSchema = Schema({
-  title: { type: String, required: true },
-  author: { type: String, required: true },
+  title: { type: String, required: true, unique: true },
+  author: { type: String, required: true, unique: true },
   content: { type: String, required: true },
   categories: [{ type: String, required: true }],
   created_at: { type: Date, default: Date.now },

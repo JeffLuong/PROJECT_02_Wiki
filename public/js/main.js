@@ -3,6 +3,7 @@ $(document).ready(function() {
 });
 
 var $hamburger = $("#hamburger-button");
+var $root = $('html, body');
 
 function animateHamburger() {
   $hamburger.toggleClass('open');
@@ -25,4 +26,11 @@ function fadeInDisplay() {
 $hamburger.on('click', function(){
   slideMenu();
   animateHamburger();
+});
+
+$('#click-scroll').click(function() {
+    $root.animate({
+        scrollTop: $("#featured-article").offset().top
+    }, 750);
+    return false;
 });

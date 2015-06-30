@@ -21,7 +21,12 @@ router.get('/', function(req, res) {
 
 // GET NEW ARTICLE FORM
 router.get('/new', function(req, res) {
-  if(req.session.currentUser) {
+  if (req.session.currentUser && req.headers.referer === "http://localhost:3000/articles/new") {
+    res.render('articles/new', {
+      username: req.session.currentUser,
+      message: "You must complete the entire article."
+    });
+  } else if(req.session.currentUser) {
     res.render('articles/new', {
       username: req.session.currentUser,
       message: "Write your article."
@@ -38,15 +43,18 @@ router.get('/new', function(req, res) {
 // CREATE NEW ARTICLE
 router.post('/:title', function(req, res) {
   var newArticle = new Article(req.body.article);
-
-  newArticle.save(function(err, article) {
-    console.log("new article posted");
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect(301, '/articles');
-    };
-  });
+  if (newArticle.content.length === 0 || newArticle.title.length === 0 || newArticle.categories.length === 0) {
+    res.redirect(301, '/articles/new');
+  } else {
+    newArticle.save(function(err, article) {
+      console.log("new article posted");
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect(301, '/articles');
+      };
+    });
+  };
 });
 
 // SHOW ARTICLE

@@ -15,7 +15,11 @@
           <% var timeModified = string2.split(" ").slice(0, 5); %>
           <li>This page was last modified on <%= timeModified[0] + " " + timeModified[1] + " " + timeModified[2] + " " + timeModified[3] + ", at " + timeModified[4] + "."%></li></br>
           <% article.categories.forEach(function (categories, i) { %>
-          <li>Categories: <%= article.categories[i] %></li>
+          <li>Categories:
+            <ul>
+              <a href="/articles/categories/<%= article.categories[i] %>"><%= article.categories[i] %></a>
+            </ul>
+          </li>
           <% }); %>
         </ul>
       </div>
@@ -23,5 +27,5 @@
   </div>
 </div>
 <footer class="edit-art-footer">
-  <span><a href="/articles/<%= article.title %>/edit"><i class="fa fa-pencil"></i></a> Edit this article.</span>
+  <span><a href="/articles/<%= article.title %>/edit"><i class="fa fa-pencil"></i></a>Edit this article.</span>
 </footer>
