@@ -14,7 +14,7 @@ var express            = require('express'),
 
 // This sets PORT to the process PORT, if it doesn't exist, use local port.
 var PORT = process.env.PORT || 3000;
-var MONGORUI = process.env.MONGLAB_URI || url;
+var MONGOURI = process.env.MONGLAB_URI || url;
 
 // MORGAN ERROR DETECTION
 server.use(morgan('short'));
