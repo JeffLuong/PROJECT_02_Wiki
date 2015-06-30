@@ -23,6 +23,7 @@ router.get('/', function(req, res) {
 router.get('/new', function(req, res) {
   if(req.session.currentUser) {
     res.render('articles/new', {
+      username: req.session.currentUser,
       message: "Write your article."
     });
   } else {
@@ -88,6 +89,22 @@ router.delete('/:title', function(req, res) {
   Article.remove(
     { title: articleTitle }, function(err, result) {
       res.redirect(301, '/articles');
+  });
+});
+
+// CLICK FOR CATEGORIES
+router.get('/categories/:category', function(req, res) {
+  console.log("Route reached, but can't search.");
+  Article.find({ categories : req.params.category }, function(err, catResults) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('articles/cat-index', {
+        article: catResults,
+        catTitle: req.params.category,
+        message: "Here are all articles on " + req.params.category + "."
+      })
+    };
   });
 });
 

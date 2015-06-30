@@ -1,0 +1,21 @@
+
+<div class="container">
+  <div id="main">
+    <div id="index-page"><%= catTitle.charAt(0).toUpperCase() + catTitle.substring(1) %> Index
+      <ul>
+        <% article.forEach(function (article, i) { %>
+        <li>
+          <a href="/articles/<%=article.title%>">
+            <%= article.title  %>
+          </a>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</div>
+<footer>
+<div class="message">
+  <h1><%= message %></h1>
+</div>
+</footer>

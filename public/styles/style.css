@@ -471,7 +471,7 @@ input#delete-button:hover {
 #featured {
   width: 100%;
   height: 150vh;
-  margin-top: 35vh;
+  margin-top: 40vh;
 }
 
 #featured h3 {
@@ -649,6 +649,7 @@ i {
   text-align: center;
   padding-top: 1em;
   font-size: 2.25em;
+  color: #495867;
 }
 
 #index-page ul {
@@ -658,6 +659,12 @@ i {
 
 #index-page ul li {
   font-size: .75em;
+}
+
+/*****************ABOUT PAGE******************/
+
+.about-info {
+  margin-top: 8vh;
 }
 
 /************MEDIA QUERIES**************/
