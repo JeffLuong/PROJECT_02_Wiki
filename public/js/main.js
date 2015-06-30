@@ -28,9 +28,17 @@ $hamburger.on('click', function(){
   animateHamburger();
 });
 
-$('#click-scroll').click(function() {
+$('#scroll-featured').click(function() {
     $root.animate({
         scrollTop: $("#featured-article").offset().top
+    }, 750);
+    return false;
+});
+
+
+$('#scroll-up').click(function() {
+    $root.animate({
+        scrollTop: $(".container").offset().top
     }, 750);
     return false;
 });

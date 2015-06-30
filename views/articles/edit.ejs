@@ -11,9 +11,25 @@
             value="<%= username %>"
             readonly></br>
       <label>Categories</label></br>
-      <input type="text"
-             name="article[categories][]"
-            value="<%= article.categories %>"></br>
+      <div class="categories-grp">
+        <% if(article.categories) %>
+        <input id="art-design" type="checkbox" name="article[categories][]"
+          value="art-design" <%= article.categories.indexOf("art-design") > -1 ? "checked" : "" %>>
+        <label for="art-design">Art and Design</label>
+        <input id="culinary" type="checkbox" name="article[categories][]"
+          value="culinary" <%= article.categories.indexOf("culinary") > -1 ? "checked" : "" %>>
+        <label for="culinary">Culinary</label>
+        <input id="history" type="checkbox" name="article[categories][]"
+          value="history" <%= article.categories.indexOf("history") > -1 ? "checked" : "" %>>
+        <label for="history">History</label>
+        <input id="technology" type="checkbox" name="article[categories][]"
+          value="technology" <%= article.categories.indexOf("technology") > -1 ? "checked" : "" %>>
+        <label for="technology">Technology</label>
+        <input id="sports" type="checkbox" name="article[categories][]"
+          value="sports" <%= article.categories.indexOf("sports") > -1 ? "checked" : "" %>>
+        <label for="sports">Sports</label>
+        <input type="hidden" name="article[categories][]" value="">
+      </div>
      <label>Content</label></br>
      <textarea type="text"
             name="article[content]"><%= article.content %></textarea>

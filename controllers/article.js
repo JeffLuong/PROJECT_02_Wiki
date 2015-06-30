@@ -19,6 +19,19 @@ router.get('/', function(req, res) {
  });
 });
 
+// GENERATE A RANDOM ARTICLE
+router.get('/random', function(req, res) {
+  Article.count().exec(function(err, count) {
+    var randNum  = Math.floor(Math.random() * count);
+
+    Article.findOne().skip(randNum).exec(function(err, foundArticle) {
+      res.render('articles/show', {
+        article: foundArticle
+      });
+    });
+  });
+});
+
 // GET NEW ARTICLE FORM
 router.get('/new', function(req, res) {
   if (req.session.currentUser && req.headers.referer === "http://localhost:3000/articles/new") {
@@ -103,7 +116,6 @@ router.delete('/:title', function(req, res) {
 
 // CLICK FOR CATEGORIES
 router.get('/categories/:category', function(req, res) {
-  console.log("Route reached, but can't search.");
   Article.find({ categories : req.params.category }, function(err, catResults) {
     if (err) {
       console.log(err);
