@@ -687,7 +687,9 @@ i {
 
 #main-new-user form input[type="submit"]:hover {
   cursor: pointer;
-  background-color: #6b7783;
+  background-color: white;
+  color: #495867;
+  border: 1px solid #495867;
 }
 
 /************SHOW USER PROFILE PAGE***********/
