@@ -768,3 +768,17 @@ i {
       font-size: .85em;
     }
 }
+
+@media print {
+ /* All your print styles go here */
+ #article { width: 90%;
+   margin: 0;
+   width: 0;
+ }
+
+ header#hamburger-button, footer, header#menu-wrapper {
+   display: none;
+   visibility: hidden;
+ }
+
+}
