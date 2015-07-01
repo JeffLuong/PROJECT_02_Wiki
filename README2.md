@@ -30,6 +30,9 @@ This project was approached in a minimalist standpoint. It is a more stylized wi
 3. How to implement categories into the application. (Solved: implemented a dynamic route using the category selected as a query variable for the server to search for all items with that category.)
 4. How to implement random article feature. (Solved: included a backend code that gets the "count" of the number of articles in the database, generate a random number from 1 to the count and use that number to choose an article right after that number.)
 
+###Problems Unsolved:
+1. Getting duplicate key Mongo error. I suspect it is because my author is set to unique, but after making the change the error persists.
+
 ###Potential Features to Add:
 1. Store and be able to show previous iterations of an article.
 2. Implement Bcrypt to user password creation.
