@@ -56,7 +56,7 @@ router.get('/login', function(req, res) {
 // LOGIN ATTEMPT
 router.post('/login', function(req, res) {
   var loginAttempt = req.body.user;
-
+  console.log(req.headers.referer);
   User.findOne({ username: loginAttempt.username }, function(err, user) {
     if (user && user.password === loginAttempt.password) {
       req.session.currentUser = user.username;
@@ -71,6 +71,7 @@ router.post('/login', function(req, res) {
   });
 });
 
+
 // CREATE NEW USER
 router.post('/', function(req, res) {
   var newUser = new User(req.body.user);
@@ -78,6 +79,13 @@ router.post('/', function(req, res) {
   newUser.save(function(err, user) {
     res.redirect(301, '/users/' + user._id);
   });
+});
+
+// LOGOUT USER
+router.get('/logout', function(req, res) {
+  req.session.currentUser = null;
+  res.redirect(301, '/');
+  console.log("logged out");
 });
 
 // SHOW USER PROFILE
@@ -112,11 +120,6 @@ router.patch('/:id', function(req, res) {
    });
 });
 
-// LOGOUT USER
-router.get('/logout', function(req, res) {
-  req.session.currentUser = null;
-  res.redirect(301, '/');
-  console.log("logged out");
-});
+
 
 module.exports = router;
