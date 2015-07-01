@@ -421,7 +421,8 @@ footer.welcome-footer div{
 }
 
 footer.edit-art-footer,
-footer.delete-art-footer {
+footer.delete-art-footer,
+footer div.message div {
   text-align: right;
   background-color: white;
   font-size: 2em;
@@ -431,9 +432,15 @@ footer.delete-art-footer {
   padding-bottom: 1em;
 }
 
-footer.edit-art-footer div {
+footer.edit-art-footer div,
+footer div.message div {
   float: left;
   padding-left: .75em;
+}
+
+footer div.message div {
+  padding-right: .1em;
+  font-size: 1em;
 }
 
 input#delete-button {
