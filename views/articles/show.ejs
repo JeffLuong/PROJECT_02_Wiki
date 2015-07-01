@@ -7,7 +7,7 @@
       </div>
       <div class="full">
           <%- article.content %>
-        <ul>
+        <ul class="small-case">
           <% var string = article.created_at.toString(); %>
           <% var timeCreated = string.split(" ").slice(0, 5); %>
           <li>This page was created on <%= timeCreated[0] + " " + timeCreated[1] + " " + timeCreated[2] + " " + timeCreated[3] + ", at " + timeCreated[4] + "."%></li></br>
