@@ -33,7 +33,7 @@ router.get('/random', function(req, res) {
 });
 
 // GET NEW ARTICLE FORM
-router.get('/new', function(req, res) {
+router.get('/new', function(req, res) { //CHANGE REFERRER LINK WHEN PUSHING TO HEROKU
   if (req.session.currentUser && req.headers.referer === "http://localhost:3000/articles/new") {
     res.render('articles/new', {
       username: req.session.currentUser,

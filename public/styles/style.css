@@ -615,6 +615,7 @@ i {
   background-color: #CE796B;
   border: 1px solid #CE796B;
   color: white;
+  cursor: pointer;
 }
 
 #main-new-art,
