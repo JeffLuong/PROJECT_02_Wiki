@@ -31,7 +31,8 @@ This project was approached in a minimalist standpoint. It is a more stylized wi
 4. How to implement random article feature. (Solved: included a backend code that gets the "count" of the number of articles in the database, generate a random number from 1 to the count and use that number to choose an article right after that number.)
 
 ###Problems Unsolved:
-1. Getting duplicate key Mongo error. I suspect it is because my author is set to unique, but after making the change the error persists.
+1. If you click write article before logging in it redirects you to login. However, after logging in, it doesn't redirect to write an article.
+2. Add routerHelpers.js
 
 ###Potential Features to Add:
 1. Store and be able to show previous iterations of an article.
@@ -39,3 +40,4 @@ This project was approached in a minimalist standpoint. It is a more stylized wi
 3. Allow users to add their own categories into the database.
 4. Implement more responsive design to the application.
 5. ALlow articles to be printable in a nice pre-formatted fashion.
+6. Add commenting feature.
